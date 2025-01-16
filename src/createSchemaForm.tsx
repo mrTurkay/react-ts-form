@@ -482,17 +482,7 @@ export function createTsForm<
           }, {} as RenderedObjectElements);
         }
         if (isZodArray(type)) {
-          return ((currentValue as Array<any> | undefined | null) ?? []).map(
-            (item, index) => {
-              return renderComponentForSchemaDeep(
-                type.element,
-                props,
-                key,
-                `${prefixedKey}[${index}]`,
-                item
-              );
-            }
-          );
+          return null;
         }
         throw new Error(
           noMatchingSchemaErrorMessage(key.toString(), type._def.typeName)
@@ -534,8 +524,7 @@ export function createTsForm<
             placeholder={ctxPlaceholder}
             enumValues={meta.enumValues as string[] | undefined}
             addToCoerceUndefined={submitter.addToCoerceUndefined}
-            removeFromCoerceUndefined={submitter.removeFromCoerceUndefined}
-          >
+            removeFromCoerceUndefined={submitter.removeFromCoerceUndefined}>
             <Component key={prefixedKey} {...mergedProps} />
           </FieldContextProvider>
           {afterElement}
