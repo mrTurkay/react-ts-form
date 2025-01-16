@@ -481,12 +481,8 @@ export function createTsForm<
             return accum;
           }, {} as RenderedObjectElements);
         }
-        if (isZodArray(type)) {
-          return null;
-        }
-        throw new Error(
-          noMatchingSchemaErrorMessage(key.toString(), type._def.typeName)
-        );
+        // Skip rendering for arrays and any other types without matching components
+        return null;
       }
       const meta = getMetaInformationForZodType(type);
 
