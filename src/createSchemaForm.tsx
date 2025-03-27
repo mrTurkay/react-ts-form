@@ -206,7 +206,7 @@ export type PropType<
                 PropsMapType,
                 Prev[Level]
               >
-            : never
+            : any
           : GetTupleFromMapping<Mapping, SchemaType, key> extends readonly [
               any,
               any
@@ -216,10 +216,9 @@ export type PropType<
               PropsMapType[number][1]
             > &
               ExtraProps
-          : never;
+          : any;
       }>
     >;
-
 export type RenderedFieldMap<
   SchemaType extends AnyZodObject | ZodEffects<any, any>,
   Level extends Prev[number] = MaxDefaultRecursionDepth
@@ -520,7 +519,8 @@ export function createTsForm<
             placeholder={ctxPlaceholder}
             enumValues={meta.enumValues as string[] | undefined}
             addToCoerceUndefined={submitter.addToCoerceUndefined}
-            removeFromCoerceUndefined={submitter.removeFromCoerceUndefined}>
+            removeFromCoerceUndefined={submitter.removeFromCoerceUndefined}
+          >
             <Component key={prefixedKey} {...mergedProps} />
           </FieldContextProvider>
           {afterElement}
