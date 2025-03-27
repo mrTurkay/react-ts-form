@@ -1,5 +1,5 @@
 {
-  "name": "@ts-react/form",
+  "name": "@mrturkay/ts-react-form",
   "version": "1.0.7",
   "description": "Build forms faster!",
   "module": "lib/index.mjs",
